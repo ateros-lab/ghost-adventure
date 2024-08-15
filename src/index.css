@@ -1,4 +1,4 @@
-html, body, :root, canvas {
+html, body, :root, canvas, .UserInterface {
   position: absolute;
   top: 0;
   left: 0;

@@ -1,12 +1,12 @@
 import { Axis, Space } from "@babylonjs/core";
 
 export class PlayerController {
-  constructor (scene, meshName) {
+  constructor (scene) {
     // Moving variables
     this.rotateOffset = Math.PI/100;
     this.translateOffset = 0.1;
     // Player data
-    this.playerPivot = scene.meshes.find(mesh => mesh.name === meshName);
+    this.playerPivot = scene.getMeshByName("PlayerPivot");
     // Event listener
     window.addEventListener("keydown", event => this.onKeyDown(event.code));
   }
