@@ -5,7 +5,7 @@ export class TargetController{
     // GameObjects
     this.scene = scene;
     this.player = this.scene.getMeshByName("Player");
-    this.target = this.scene.getMeshByName("Target");
+    this.target = this.scene.getMeshByName("Target1");
     // Variables
     this.isPlayerInside = false;
     // UI Manager
@@ -34,7 +34,7 @@ export class TargetController{
 
   onKeyDown(eventCode){
     if(eventCode === "KeyE" && this.isPlayerInside) {
-      this.scene.getMeshByName("Crystal").visibility = 0;
+      this.scene.getMeshByName("Crystal1").visibility = 0;
       this.infoManager.disable();
     }
   }
