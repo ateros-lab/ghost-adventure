@@ -1,17 +1,17 @@
-import { InfoManager } from "./InfoManager";
+import { InfoManager } from "./../ui-managers/InfoManager";
 
 export class TargetController{
-  constructor(scene){
+  constructor(scene, index, text){
+    this.index = index;
     // GameObjects
     this.scene = scene;
     this.player = this.scene.getMeshByName("Player");
-    this.target = this.scene.getMeshByName("Target1");
+    this.target = this.scene.getMeshByName("Target" + this.index);
     // Variables
     this.isPlayerInside = false;
+    this.wasCrystalTaken = false;
     // UI Manager
-    this.infoManager = new InfoManager(
-      "Congrats! You've successfully found the first crystal. Try to press \"E\" to take it."
-    );
+    this.infoManager = new InfoManager(text);
     // Event listeners
     this.scene.registerBeforeRender(() => this.udpate());
     window.addEventListener("keydown", event => this.onKeyDown(event.code));
@@ -34,8 +34,9 @@ export class TargetController{
 
   onKeyDown(eventCode){
     if(eventCode === "KeyE" && this.isPlayerInside) {
-      this.scene.getMeshByName("Crystal1").visibility = 0;
+      this.scene.getMeshByName("Crystal" + this.index).visibility = 0;
       this.infoManager.disable();
+      this.wasCrystalTaken = true;
     }
   }
 }

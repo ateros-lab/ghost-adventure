@@ -1,8 +1,7 @@
 import SceneComponent from "babylonjs-hook";
-import { Axis, GlowLayer, SceneLoader, Space, Color3 } from "@babylonjs/core";
-import { PlayerController } from "./game-scripts/PlayerController";
-import { TargetController } from "./game-scripts/TargetController";
+import { GlowLayer, SceneLoader } from "@babylonjs/core";
 import UserInterface from "./ui-components/UserInterface";
+import { GameManager } from "./game-scripts/GameManager";
 
 function App() {
 
@@ -11,8 +10,7 @@ function App() {
 
   const load = (scene) => {
     new GlowLayer("glow", scene);
-    new PlayerController(scene);
-    new TargetController(scene);
+    new GameManager(scene);
   }
 
   return (
